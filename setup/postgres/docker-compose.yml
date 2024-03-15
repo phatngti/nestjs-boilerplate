@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:13.4
+    ports:
+      - "${PORT}:5432"
+    environment:
+      POSTGRES_PASSWORD: ${PASSWORD}
+      POSTGRES_USER: ${USERNAME}
+      POSTGRES_DB: ${DATABASE}
+    env_file:
+      ./.env
+    volumes:
+      - ./_data:/var/lib/postgresql/data
